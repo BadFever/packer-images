@@ -1,0 +1,24 @@
+#cloud-config
+autoinstall:
+  version: 1
+  early-coomands:
+    - sudo systemctl stop ssh
+  locale: en_US.UTF-8
+  identity:
+    hostname: ubuntu-template
+    username: mystic
+    password: $6$FhcddHFVZ7ABA4Gi$ETAgGcI1906lSNN5cmw29JJJ5n2orM4cBxT.KvQllMzlXvDIP6iFeU757XIAh4ajHxCIVNncLM3LojvQ.Ixt30
+  storage:
+    layout:
+      name: lvm
+      match:
+        path: /dev/sda
+  ssh:
+    install-server: yes
+    allow-pw: yes
+  apt:
+    geoip: true
+  user-data:
+    disable_root: false
+  late-commands:
+    - echo 'mystic ALL=(ALL) NOPASSWD:ALL' > /target/etc/sudoers.d/mystic3
