@@ -7,5 +7,5 @@ iso_checksum = "none"
 disk_size =  "65536"
 ssh_password = "VMware1!"
 cd_files = [
-  "build/iso/VMware-tools-windows-13.0.0-24696409",
+  "build/iso/VMware-tools-windows-13.0.0-24696409.iso",
 ]
