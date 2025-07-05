@@ -35,7 +35,7 @@ source "vsphere-iso" "ubuntu.vsphere" {
   disk_controller_type = ["pvscsi"]
   storage { 
     disk_size = "${var.disk_size}"
-    disk_thin_provisioned = ${var.thin_provisioned}
+    disk_thin_provisioned = "${var.thin_provisioned}"
     disk_controller_index = 0 
   }
   configuration_parameters = { 

@@ -17,7 +17,7 @@ packer {
 
 source "vsphere-iso" "vsphere" {
   
-  vm_name                   = "Template-W2025-${var.build_type}-${local.build_time}"
+  vm_name = "Template-W2025-${var.build_type}-${local.build_time}"
 
   # vm settings
   guest_os_type = "${var.guest_os_type}"
@@ -39,7 +39,7 @@ source "vsphere-iso" "vsphere" {
   disk_controller_type = ["pvscsi"]
   storage { 
     disk_size = "${var.disk_size}"
-    disk_thin_provisioned = ${var.thin_provisioned}
+    disk_thin_provisioned = "${var.thin_provisioned}"
     disk_controller_index = 0 
   }
   configuration_parameters = { 
