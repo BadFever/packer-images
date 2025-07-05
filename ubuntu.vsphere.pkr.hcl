@@ -1,4 +1,4 @@
-source "vsphere-iso" "ubuntu.vsphere" {
+source "vsphere-iso" "ubuntu" {
 
   vm_name = "packer_${local.build_os}_${local.build_time}"
 
@@ -59,7 +59,7 @@ source "vsphere-iso" "ubuntu.vsphere" {
 }
 
 build {
-  sources = ["sources.vsphere-iso.ubuntu.vsphere"]
+  sources = ["sources.vsphere-iso.ubuntu"]
 
   provisioner "shell" {
     execute_command = "echo 'VMware1!' | {{.Vars}} sudo -E -S bash '{{.Path}}'"

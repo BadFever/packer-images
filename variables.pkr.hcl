@@ -27,8 +27,14 @@ variable "boot_wait" {
   type = string
   default = "1s" 
 }
-variable "mystic_user_ssh_public_key" { type = string }
-variable "boot_command" { type = list(string) }
+variable "mystic_user_ssh_public_key" { 
+  type = string
+  default = ""
+}
+variable "boot_command" { 
+  type = list(string)
+  default = []
+}
 variable "install_base" { 
   type = string
   default = "default" 
@@ -90,6 +96,7 @@ variable "vsphere_username" {
 variable "vsphere_password" {
   type = string
   sensitive = true
+  default = ""
 }
 variable "vsphere_insecure_connection" {
   type = bool

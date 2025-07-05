@@ -1,5 +1,6 @@
 firmware = "efi"
 build_type = "de-datacenter"
+build_os = "wins2025"
 iso_path = "build/iso/26100.1742.240906-0331.ge_release_svc_refresh_SERVER_EVAL_x64FRE_de-de.iso"
 iso_checksum = "none"
 disk_size =  "102400"

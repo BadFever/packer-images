@@ -16,7 +16,6 @@ source "vmware-iso" "wins2025" {
   iso_url = "${var.iso_path}"
   iso_checksum = "${var.iso_checksum}"
 
-  ip_wait_timeout      = "3600s"
   floppy_files         = ["files/wins2025/${var.build_type}/autounattend.xml","files/wins2025/bootstrap.ps1"]
   communicator         = "ssh"
   ssh_username         = "Administrator"

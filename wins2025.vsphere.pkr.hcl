@@ -1,4 +1,4 @@
-source "vsphere-iso" "vsphere" {
+source "vsphere-iso" "wins2025" {
   
   vm_name = "Template-W2025-${var.build_type}-${local.build_time}"
 
