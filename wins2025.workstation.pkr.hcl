@@ -12,17 +12,12 @@ source "vmware-iso" "wins2025" {
   network_adapter_type = "vmxnet3"
   disk_adapter_type = "scsci"
 
-  configuration_parameters = { 
-    "disk.EnableUUID" = "TRUE" 
-  }
-
   # workstation build settings
   iso_url = "${var.iso_path}"
   iso_checksum = "${var.iso_checksum}"
 
   ip_wait_timeout      = "3600s"
   floppy_files         = ["files/wins2025/${var.build_type}/autounattend.xml","files/wins2025/bootstrap.ps1"]
-  iso_paths            = ["${var.iso_path}","${var.tools_path}"]
   communicator         = "ssh"
   ssh_username         = "Administrator"
   ssh_password         = "${var.ssh_password}"
@@ -30,7 +25,6 @@ source "vmware-iso" "wins2025" {
   ssh_clear_authorized_keys = "true"
   boot_wait = "3s"
   boot_command = ["<spacebar><spacebar>"]
-  remove_cdrom = true
 
 }
 

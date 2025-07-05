@@ -2,10 +2,20 @@
 
 ## GENERAL
 
-variable "iso_url" { type = string }
-variable "iso_checksum" { type = string }
-variable "build_os" { type = string }
-variable "build_type" { type = string }
+variable "iso_url" { 
+  type = string
+  default = ""
+}
+variable "iso_checksum" { 
+  type = string 
+  default = "none"
+}
+variable "build_os" { 
+  type = string 
+}
+variable "build_type" { 
+  type = string 
+}
 
 ## PROVISIONING SETTINGS
 
@@ -69,8 +79,14 @@ variable "memory_reservation" {
 
 ## VSPHERE SETTINGS
 
-variable "vsphere_vcenter_server" { type = string }
-variable "vsphere_username" { type = string }
+variable "vsphere_vcenter_server" { 
+  type = string 
+  default = ""
+}
+variable "vsphere_username" { 
+  type = string
+  default = ""
+}
 variable "vsphere_password" {
   type = string
   sensitive = true
@@ -83,12 +99,18 @@ variable "vsphere_datacenter" {
   type = string
   default = ""
 }
-variable "vsphere_datastore" { type = string }
+variable "vsphere_datastore" { 
+  type = string
+  default = ""
+}
 variable "vsphere_host" {
   type = string
   default = "" 
 }
-variable "vsphere_network" { type = string }
+variable "vsphere_network" { 
+  type = string 
+  default = ""
+}
 variable "vsphere_folder" { 
   type = string
   default = "/Discovered virtual machine"
