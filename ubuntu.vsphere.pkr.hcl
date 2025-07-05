@@ -45,7 +45,6 @@ source "vsphere-iso" "ubuntu" {
   ssh_timeout               = var.ssh_timeout
   ssh_clear_authorized_keys = "true"
   ssh_pty                   = true
-  ssh_timeout               = "20m"
   ssh_handshake_attempts    = 50
   boot_wait                 = var.boot_wait
   boot_command              = var.boot_command
