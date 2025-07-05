@@ -1,7 +1,7 @@
 
 ssh_username    = "mystic"
 ssh_password    = "VMware1!"
-guest_os_type   = "ubuntu64guest"
+guest_os_type   = "ubuntu-64"
 build_os        = "ubuntu"
 build_type      = "efi"
 iso_path        = "build/iso/ubuntu-24.04.2-live-server-amd64.iso"
