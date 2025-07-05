@@ -10,7 +10,7 @@ source "vmware-iso" "wins2025" {
   cores = "${var.cpu_cores}"
   memory = "${var.memory}"
   network_adapter_type = "vmxnet3"
-  disk_adapter_type = "scsci"
+  disk_adapter_type = "pvscsi"
 
   # workstation build settings
   iso_url = "${var.iso_path}"
