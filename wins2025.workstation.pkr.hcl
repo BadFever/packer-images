@@ -3,9 +3,9 @@ source "vmware-iso" "wins2025" {
   vm_name = "wins2025-${var.build_type}-${local.build_time}"
 
   # vm settings
-  guest_os_type = "${var.guest_os_type}"
-  firmware = "${var.firmware}"
-  version = "${var.vm_version}"
+  guest_os_type = var.guest_os_type
+  firmware = var.firmware
+  version = var.vm_version
   cpus = "${var.cpus}"
   cores = "${var.cpu_cores}"
   memory = "${var.memory}"
@@ -26,6 +26,7 @@ source "vmware-iso" "wins2025" {
   boot_wait = "3s"
   boot_command = ["<spacebar><spacebar>"]
   shutdown_command    = "shutdown /s /t 10 /f"
+  output_directory    = "build/wins2025-${var.build_type}-${local.build_time}"
 
 }
 
