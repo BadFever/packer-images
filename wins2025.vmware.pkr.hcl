@@ -52,7 +52,7 @@ build {
 
   provisioner "windows-update" {
     filters = [
-      "exclude:$_.Title -like '*VMware*'",
+      "exclude:$_.Title -like '*Broadcom Inc.*'",
       "include:$true"
     ]
   }
