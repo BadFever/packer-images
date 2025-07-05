@@ -2,7 +2,7 @@
 
 ## GENERAL
 
-variable "iso_url" { 
+variable "iso_path" { 
   type = string
   default = ""
 }
@@ -35,10 +35,13 @@ variable "boot_command" {
   type = list(string)
   default = []
 }
-variable "install_base" { 
+variable "ssh_password" { 
   type = string
-  default = "default" 
+  sensitive = true
+  default = "VMware1!"
 }
+
+
 
 # vm settings
 variable "guest_os_type" { type = string }
