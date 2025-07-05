@@ -41,8 +41,8 @@ source "vsphere-iso" "ubuntu" {
   ssh_timeout = "20m"
   ssh_handshake_attempts = 50
   cd_files = [
-    "./autoinstall/meta-data",
-    "./autoinstall/user-data"]
+    "files/ubuntu/meta-data",
+    "files/ubuntu/user-data"]
   cd_label = "cidata"
 
   # VSPHERE SETTINGS
