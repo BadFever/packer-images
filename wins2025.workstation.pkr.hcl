@@ -1,6 +1,6 @@
-source "vsphere-iso" "vsphere" {
+source "vmware-iso" "wins2025" {
  
-  vm_name = "Template-W2025-${var.build_type}-${local.build_time}"
+  vm_name = "wins2025-${var.build_type}-${local.build_time}"
 
   # vm settings
   guest_os_type = "${var.guest_os_type}"
@@ -29,36 +29,45 @@ source "vsphere-iso" "vsphere" {
     "disk.EnableUUID" = "TRUE" 
   }
 
-  # vSphere Settings
-  vcenter_server       = "${var.vsphere_vcenter_server}"
-  username             = "${var.vsphere_username}"
-  password             = "${var.vsphere_password}"
-  datacenter           = "${var.vsphere_datacenter}"
-  cluster              = "${var.vsphere_compute_cluster}"
-  host                 = "${var.vsphere_host}"
-  datastore            = "${var.vsphere_datastore}"
-  folder               = "${var.vsphere_folder}"
-  insecure_connection  = "${var.vsphere_insecure_connection}"
-
+  # workstation build settings
   ip_wait_timeout      = "3600s"
-  floppy_files         = ["wins2025/${var.build_type}/autounattend.xml","setup/bootstrap.ps1"]
+  floppy_files         = ["files/wins2025/${var.build_type}/autounattend.xml","files/wins2025/bootstrap.ps1"]
   iso_paths            = ["${var.iso_path}","${var.tools_path}"]
   communicator         = "ssh"
   ssh_username         = "Administrator"
   ssh_password         = "${var.ssh_password}"
   ssh_timeout          = "${var.ssh_timeout}"
   ssh_clear_authorized_keys = "true"
-
   boot_wait = "3s"
   boot_command = ["<spacebar><spacebar>"]
-
   remove_cdrom = true
 
-  content_library_destination {
-    library = "${var.vsphere_content_library}"
-    name = "win2025-${var.build_type}-latest"
-    ovf = true
-    destroy = true
+}
+
+build {
+  sources = ["source.vmware-iso.wins2025"]
+
+  provisioner "powershell" {
+    script   = "provisioning/wins2025/services.ps1"
   }
+
+  provisioner "powershell" {
+    script   = "provisioning/wins2025/customize.ps1"
+  }
+
+  provisioner "powershell" {
+    script   = "provisioning/wins2025/cleanup.ps1"
+  }
+  
+  provisioner "windows-shell" {
+    inline = ["ipconfig"]
+  }
+
+  #provisioner "windows-update" {
+  #  filters = [
+  #    "exclude:$_.Title -like '*VMware*'",
+  #    "include:$true"
+  #  ]
+  #}
 
 }
