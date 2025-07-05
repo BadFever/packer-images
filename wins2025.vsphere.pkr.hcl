@@ -64,7 +64,7 @@ source "vsphere-iso" "wins2025" {
 }
 
 build {
-  sources = ["source.vsphere-iso.vsphere"]
+  sources = ["source.vsphere-iso.wins2025"]
 
   provisioner "powershell" {
     script   = "./provisioning/services.ps1"
