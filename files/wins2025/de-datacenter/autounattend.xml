@@ -116,7 +116,7 @@
                 <SynchronousCommand wcm:action="add">
                     <Order>3</Order>
                     <Description>Set Execution Policy 32 Bit</Description>
-                    <CommandLine>cmd.exe /c powershell -Command "DISM /Online /Set-Edition:ServerDatacenter /ProductKey:D764K-2NDRG-47T6Q-P8T8W-YP6DF /AcceptEula"</CommandLine>
+                    <CommandLine>cmd.exe /c powershell -Command "DISM /Online /Set-Edition:ServerDatacenter /ProductKey:D764K-2NDRG-47T6Q-P8T8W-YP6DF /AcceptEula /NoRestart"</CommandLine>
                     <RequiresUserInput>true</RequiresUserInput>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
