@@ -1,12 +1,12 @@
 
-ssh_username = "mystic"
-ssh_password = "VMware1!"
-guest_os_type = "ubuntu64guest"
-build_os = "ubuntu"
-build_type = "efi"
-iso_path = "build/iso/ubuntu-24.04.2-live-server-amd64.iso"
+ssh_username    = "mystic"
+ssh_password    = "VMware1!"
+guest_os_type   = "ubuntu64guest"
+build_os        = "ubuntu"
+build_type      = "efi"
+iso_path        = "build/iso/ubuntu-24.04.2-live-server-amd64.iso"
 
-boot_command = [
+boot_command    = [
         "<wait><wait><wait>c<wait><wait><wait>",
         "linux /casper/vmlinuz --- autoinstall ipv6.disable=1<enter><wait>",
         "initrd /casper/initrd<enter><wait>",

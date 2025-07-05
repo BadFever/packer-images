@@ -20,6 +20,10 @@ variable "cd_files" {
   type = list(string)
   default = []
 }
+variable "tools_path" { 
+  type = string
+  default = ""
+}
 
 ## PROVISIONING SETTINGS
 
@@ -132,6 +136,14 @@ variable "vsphere_network" {
 variable "vsphere_folder" { 
   type = string
   default = "/Discovered virtual machine"
+}
+variable "vsphere_compute_cluster" { 
+  type = string
+  default = ""
+}
+variable "vsphere_content_library" { 
+  type = string
+  default = ""
 }
 
 ## LOCALS

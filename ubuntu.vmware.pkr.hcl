@@ -1,34 +1,33 @@
 source "vmware-iso" "ubuntu" {
  
-  vm_name = "${var.build_os}-${var.build_type}-${local.build_time}"
+  vm_name = "${var.build_os}-${local.build_time}"
 
   # vm settings
-  guest_os_type = var.guest_os_type
-  firmware = var.firmware
-  version = var.vm_version
-  cpus = var.cpus
-  cores = var.cpu_cores
-  memory = var.memory
-  network_adapter_type = "vmxnet3"
-  disk_adapter_type = "scsi"
-  cdrom_adapter_type = "ide"
+  # vm settings workstation
+  guest_os_type         = var.guest_os_type
+  firmware              = var.firmware
+  version               = var.vm_version
+  cpus                  = var.cpus
+  cores                 = var.cpu_cores
+  memory                = var.memory
+  network_adapter_type  = "vmxnet3"
+  disk_adapter_type     = "scsi"
+  cdrom_adapter_type    = "ide"
 
   # workstation build settings
-  iso_url = var.iso_path
-  iso_checksum = var.iso_checksum
-
-  cd_files             = ["files/${var.build_os}/meta-data","files/${var.build_os}/user-data"]
-  cd_label            = "cidata"
-  communicator         = "ssh"
-  ssh_username         = var.ssh_username
-  ssh_password         = var.ssh_password
-  ssh_timeout          = var.ssh_timeout
+  iso_url                   = var.iso_path
+  iso_checksum              = var.iso_checksum
+  cd_files                  = ["files/${var.build_os}/meta-data","files/${var.build_os}/user-data"]
+  cd_label                  = "cidata"
+  communicator              = "ssh"
+  ssh_username              = var.ssh_username
+  ssh_password              = var.ssh_password
+  ssh_timeout               = var.ssh_timeout
   ssh_clear_authorized_keys = "true"
-  boot_wait = "3s"
-  boot_command = var.boot_command
-  shutdown_command = "echo 'VMware1!' | sudo -S shutdown -P now"
-  output_directory    = "build/ubuntu-${var.build_type}-${local.build_time}"
-
+  boot_wait                 = "3s"
+  boot_command              = var.boot_command
+  shutdown_command          = "echo 'VMware1!' | sudo -S shutdown -P now"
+  output_directory          = "build/${var.build_os}-${local.build_time}"
 }
 
 build {
