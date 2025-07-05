@@ -19,6 +19,6 @@ autoinstall:
   apt:
     geoip: true
   user-data:
-    disable_root: false
+    disable_root: true
   late-commands:
-    - echo 'mystic ALL=(ALL) NOPASSWD:ALL' > /target/etc/sudoers.d/mystic3
+    - echo 'mystic ALL=(ALL) NOPASSWD:ALL' > /target/etc/sudoers.d/mystic

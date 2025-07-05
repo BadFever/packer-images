@@ -5,6 +5,7 @@ guest_os_type   = "ubuntu-64"
 build_os        = "ubuntu"
 build_type      = "efi"
 iso_path        = "build/iso/ubuntu-24.04.2-live-server-amd64.iso"
+disk_size       = 25600
 
 boot_command    = [
         "<wait><wait><wait>c<wait><wait><wait>",
