@@ -16,7 +16,7 @@ packer {
 }
 
 source "vsphere-iso" "vsphere" {
-  
+ 
   vm_name                   = "Template-W2025-${var.build_type}-${local.build_time}"
 
   # vm settings
@@ -46,7 +46,7 @@ source "vsphere-iso" "vsphere" {
     "disk.EnableUUID" = "TRUE" 
   }
 
-  # vsphere settings
+  # vSphere Settings
   vcenter_server       = "${var.vsphere_vcenter_server}"
   username             = "${var.vsphere_username}"
   password             = "${var.vsphere_password}"
@@ -58,7 +58,7 @@ source "vsphere-iso" "vsphere" {
   insecure_connection  = "${var.vsphere_insecure_connection}"
 
   ip_wait_timeout      = "3600s"
-  floppy_files         = ["setup/${var.build_type}/autounattend.xml","setup/bootstrap.ps1"]
+  floppy_files         = ["wins2025/${var.build_type}/autounattend.xml","setup/bootstrap.ps1"]
   iso_paths            = ["${var.iso_path}","${var.tools_path}"]
   communicator         = "ssh"
   ssh_username         = "Administrator"
@@ -77,33 +77,5 @@ source "vsphere-iso" "vsphere" {
     ovf = true
     destroy = true
   }
-
-}
-
-build {
-  sources = ["source.vsphere-iso.vsphere"]
-
-  provisioner "powershell" {
-    script   = "./provisioning/services.ps1"
-  }
-
-  provisioner "powershell" {
-    script   = "./provisioning/customize.ps1"
-  }
-
-  provisioner "powershell" {
-    script   = "./provisioning/cleanup.ps1"
-  }
-  
-  provisioner "windows-shell" {
-    inline = ["ipconfig"]
-  }
-
-  #provisioner "windows-update" {
-  #  filters = [
-  #    "exclude:$_.Title -like '*VMware*'",
-  #    "include:$true"
-  #  ]
-  #}
 
 }

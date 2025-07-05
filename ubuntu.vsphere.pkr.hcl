@@ -13,25 +13,34 @@ packer {
 
 source "vsphere-iso" "ubuntu.vsphere" {
 
-  # VM SETTINGS
-  
   vm_name = "packer_${local.build_os}_${local.build_time}"
+
+  # vm settings
   guest_os_type = "${var.guest_os_type}"
   firmware = "${var.firmware}"
   vm_version = "${var.vm_version}"
   CPUs = "${var.cpus}"
   cpu_cores = "${var.cpu_cores}"
-  CPU_reservation = 0
+  CPU_reservation = "${var.cpu_reservation}"
   CPU_limit = 0
-  CPU_hot_plug = false
+  CPU_hot_plug = "${var.hot_plug}"
   RAM = "${var.memory}"
-  RAM_reservation = 0
+  RAM_reservation = "${var.memory_reservation}"
   RAM_reserve_all = false
-  RAM_hot_plug = false
-  network_adapters { network = "${var.vsphere_network}", network_card = "vmxnet3"}
+  RAM_hot_plug = "${var.hot_plug}"
+  network_adapters { 
+    network = "${var.vsphere_network}"
+    network_card = "vmxnet3"
+  }
   disk_controller_type = ["pvscsi"]
-  storage { disk_size = "${var.disk_size}", disk_thin_provisioned = ${var.thin_provisioned}, disk_controller_index = 0 }
-  configuration_parameters = { "disk.EnableUUID" = "TRUE" }
+  storage { 
+    disk_size = "${var.disk_size}"
+    disk_thin_provisioned = ${var.thin_provisioned}
+    disk_controller_index = 0 
+  }
+  configuration_parameters = { 
+    "disk.EnableUUID" = "TRUE" 
+  }
 
 
   boot_wait = "${var.boot_wait}"
