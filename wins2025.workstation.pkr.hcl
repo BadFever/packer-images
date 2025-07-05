@@ -5,31 +5,21 @@ source "vmware-iso" "wins2025" {
   # vm settings
   guest_os_type = "${var.guest_os_type}"
   firmware = "${var.firmware}"
-  vm_version = "${var.vm_version}"
-  CPUs = "${var.cpus}"
-  cpu_cores = "${var.cpu_cores}"
-  CPU_reservation = "${var.cpu_reservation}"
-  CPU_limit = 0
-  CPU_hot_plug = "${var.hot_plug}"
-  RAM = "${var.memory}"
-  RAM_reservation = "${var.memory_reservation}"
-  RAM_reserve_all = false
-  RAM_hot_plug = "${var.hot_plug}"
-  network_adapters { 
-    network = "${var.vsphere_network}"
-    network_card = "vmxnet3"
-  }
-  disk_controller_type = ["pvscsi"]
-  storage { 
-    disk_size = "${var.disk_size}"
-    disk_thin_provisioned = "${var.thin_provisioned}"
-    disk_controller_index = 0 
-  }
+  version = "${var.vm_version}"
+  cpus = "${var.cpus}"
+  cores = "${var.cpu_cores}"
+  memory = "${var.memory}"
+  network_adapter_type = "vmxnet3"
+  disk_adapter_type = "scsci"
+
   configuration_parameters = { 
     "disk.EnableUUID" = "TRUE" 
   }
 
   # workstation build settings
+  iso_url = "${var.iso_path}"
+  iso_checksum = "${var.iso_checksum}"
+
   ip_wait_timeout      = "3600s"
   floppy_files         = ["files/wins2025/${var.build_type}/autounattend.xml","files/wins2025/bootstrap.ps1"]
   iso_paths            = ["${var.iso_path}","${var.tools_path}"]

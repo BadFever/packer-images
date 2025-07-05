@@ -5,6 +5,7 @@
 variable "iso_url" { type = string }
 variable "iso_checksum" { type = string }
 variable "build_os" { type = string }
+variable "build_type" { type = string }
 
 ## PROVISIONING SETTINGS
 
