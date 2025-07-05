@@ -6,3 +6,6 @@ iso_path = "build/iso/26100.1742.240906-0331.ge_release_svc_refresh_SERVER_EVAL_
 iso_checksum = "none"
 disk_size =  "65536"
 ssh_password = "VMware1!"
+cd_files = [
+  "build/iso/VMware-tools-windows-13.0.0-24696409",
+]

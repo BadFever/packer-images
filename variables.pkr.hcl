@@ -16,6 +16,10 @@ variable "build_os" {
 variable "build_type" { 
   type = string 
 }
+variable "cd_files" { 
+  type = list(string)
+  default = []
+}
 
 ## PROVISIONING SETTINGS
 
@@ -34,6 +38,10 @@ variable "mystic_user_ssh_public_key" {
 variable "boot_command" { 
   type = list(string)
   default = []
+}
+variable "ssh_username" { 
+  type = string
+  default = "mystic"
 }
 variable "ssh_password" { 
   type = string

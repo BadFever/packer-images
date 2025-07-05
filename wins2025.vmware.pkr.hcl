@@ -18,6 +18,7 @@ source "vmware-iso" "wins2025" {
   iso_checksum = var.iso_checksum
 
   floppy_files         = ["files/wins2025/${var.build_type}/autounattend.xml","files/wins2025/bootstrap.ps1"]
+  cd_files             = var.cd_files
   communicator         = "ssh"
   ssh_username         = "Administrator"
   ssh_password         = var.ssh_password
