@@ -13,7 +13,9 @@ Central collection of multiple packer builds.
 ## Images
 
 - Windows Server 2025
-- Ubuntu
+- Ubuntu 24
+- Rocky 9
+- Rocky 10
 
 ## Build Images
 

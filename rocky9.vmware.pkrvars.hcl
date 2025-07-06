@@ -11,5 +11,6 @@ iso_checksum    = "file:https://download.rockylinux.org/pub/rocky/9/isos/x86_64/
 disk_size       = 25600
 
 boot_command    = [
-        "<tab> inst.text inst.ks=hd:fd0:/rocky.ks<enter>",
-        ]
+        "e<wait>",
+        "<down><down><down><end> inst.text inst.ks=hd:fd0:/rocky.ks<wait><ctrl-x>",
+]
