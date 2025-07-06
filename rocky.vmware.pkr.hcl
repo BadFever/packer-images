@@ -24,7 +24,10 @@ source "vmware-iso" "rocky" {
   ssh_timeout               = var.ssh_timeout
   ssh_clear_authorized_keys = "true"
   boot_wait                 = "5s"
-  boot_command              = var.boot_command
+  boot_command              = [
+    "e<wait>",
+    "<down><down><down><end> inst.text inst.ks=hd:fd0:/rocky.ks<wait><ctrl-x>",
+  ]
   shutdown_command          = "echo 'VMware1!' | sudo -S shutdown -P now"
   output_directory          = "build/${var.build_os}-${local.build_time}"
 }
