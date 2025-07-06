@@ -28,7 +28,7 @@ source "vmware-iso" "rocky" {
   boot_command              = [
     "<up>",
     "e<wait>",
-    "<down><down><end><wait>",
+    "<down><down><down><end><wait>",
     "inst.text inst.ks=hd:fd0:/rocky.ks<wait>",
     "<enter><wait><leftCtrlOn>x<leftCtrlOff>",
   ]
