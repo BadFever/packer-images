@@ -1,4 +1,4 @@
-
+# ubuntu.vmware
 ssh_username    = "mystic"
 ssh_password    = "VMware1!"
 guest_os_type   = "ubuntu-64"
