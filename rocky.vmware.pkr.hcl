@@ -28,8 +28,8 @@ source "vmware-iso" "rocky" {
   boot_command              = [
     "<up>",
     "e<wait>",
-    "<down><down><down><end><wait>",
-    "<space>inst.text inst.ks=hd:fd0:/rocky.ks<wait>",
+    "<down><down><end><wait>",
+    " inst.text inst.ks=hd:fd0:/rocky.ks<wait>",
     "<enter><wait><leftCtrlOn>x<leftCtrlOff>",
   ]
   shutdown_command          = "echo 'VMware1!' | sudo -S shutdown -P now"
