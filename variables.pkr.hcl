@@ -172,3 +172,7 @@ variable "vsphere_content_library" {
   default     = ""
   description = "Content library to use for VM templates or ISO storage."
 }
+
+locals {
+  build_time = formatdate("YYYYMMDD'T'hhmmss",timestamp())
+}
