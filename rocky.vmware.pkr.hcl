@@ -23,7 +23,7 @@ source "vmware-iso" "rocky" {
   ssh_password              = var.ssh_password
   ssh_timeout               = var.ssh_timeout
   ssh_clear_authorized_keys = "true"
-  boot_wait                 = "3s"
+  boot_wait                 = "5s"
   boot_command              = var.boot_command
   shutdown_command          = "echo 'VMware1!' | sudo -S shutdown -P now"
   output_directory          = "build/${var.build_os}-${local.build_time}"
