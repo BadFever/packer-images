@@ -26,7 +26,7 @@ source "vmware-iso" "rocky" {
   ssh_password              = var.ssh_password
   ssh_timeout               = var.ssh_timeout
   ssh_clear_authorized_keys = "true"
-  boot_wait                 = "15s"
+  boot_wait                 = "10s"
   boot_key_interval         = "100ms"
   boot_command              = [
     "<up>",
