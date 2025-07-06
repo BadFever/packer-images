@@ -27,6 +27,7 @@ source "vmware-iso" "wins2025" {
   boot_command              = ["<spacebar><spacebar>"]
   shutdown_command          = "shutdown /s /t 10 /f"
   output_directory          = "build/${var.build_os}-${var.build_type}-${local.build_time}"
+  disk_size                 = var.disk_size
 }
 
 build {
