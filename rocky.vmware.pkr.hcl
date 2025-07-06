@@ -17,7 +17,9 @@ source "vmware-iso" "rocky" {
   iso_url                   = var.iso_path
   iso_checksum              = var.iso_checksum
   #floppy_files              = ["files/${var.build_os}/ks.cfg"]
-  http_directory            = "files/${var.build_os}"
+  #http_directory            = "files/${var.build_os}"
+  cd_files                  = ["files/${var.build_os}/ks.cfg"]
+  cd_label                  = "KICKSTART"
   communicator              = "ssh"
   ssh_username              = var.ssh_username
   ssh_password              = var.ssh_password
@@ -31,7 +33,8 @@ source "vmware-iso" "rocky" {
     "<down><down><end><wait>",
     " inst.text",
     #" inst.ks=hd:fd0:/ks.cfg",
-    " inst.ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<wait>",
+    #" inst.ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<wait>",
+    " inst.ks=cdrom:/ks.cfg<wait>",
     "<wait><leftCtrlOn>x<leftCtrlOff>",
   ]
   shutdown_command          = "echo 'VMware1!' | sudo -S shutdown -P now"
