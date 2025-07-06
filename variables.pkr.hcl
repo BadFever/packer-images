@@ -24,6 +24,10 @@ variable "tools_path" {
   type = string
   default = ""
 }
+variable "kickstart_path" { 
+  type = string
+  default = ""
+}
 
 ## PROVISIONING SETTINGS
 
