@@ -1,4 +1,4 @@
-source "vmware-iso" "ubuntu" {
+source "vmware-iso" "rocky" {
  
   vm_name = "${var.build_os}-${local.build_time}"
 
@@ -16,7 +16,7 @@ source "vmware-iso" "ubuntu" {
   # workstation build settings
   iso_url                   = var.iso_path
   iso_checksum              = var.iso_checksum
-  cd_files                  = ["files/${var.build_os}/meta-data","files/${var.build_os}/user-data"]
+  floppy_files              = ["files/${var.build_os}/rokcy.ks"]
   cd_label                  = "cidata"
   communicator              = "ssh"
   ssh_username              = var.ssh_username
@@ -30,16 +30,16 @@ source "vmware-iso" "ubuntu" {
 }
 
 build {
-  sources = ["source.vmware-iso.ubuntu"]
+  sources = ["source.vmware-iso.rocky"]
 
-  provisioner "shell" {
-    execute_command = "echo 'VMware1!' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
-    expect_disconnect = true
-    scripts = [
-      "provisioning/${var.build_os}/bootstrap.sh"
-    ]
-    pause_before = "15s"
-  }
+  #provisioner "shell" {
+  #  execute_command = "echo 'VMware1!' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
+  #  expect_disconnect = true
+  #  scripts = [
+  #    "provisioning/${var.build_os}/bootstrap.sh"
+  #  ]
+  #  pause_before = "15s"
+  #}
 
   #provisioner "ansible-local" {
   #  playbook_file = "provisioning/${var.build_os}/playbook.yml"
