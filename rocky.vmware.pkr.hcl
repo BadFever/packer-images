@@ -17,8 +17,6 @@ source "vmware-iso" "rocky" {
   # workstation build settings
   iso_url                   = var.iso_path
   iso_checksum              = var.iso_checksum
-  #floppy_files              = ["files/${var.build_os}/ks.cfg"]
-  #http_directory            = "files/${var.build_os}"
   cd_files                  = ["files/${var.build_os}/ks.cfg"]
   cd_label                  = "KICKSTART"
   communicator              = "ssh"
@@ -33,9 +31,7 @@ source "vmware-iso" "rocky" {
     "e<wait>",
     "<down><down><end><wait>",
     " inst.text",
-    #" inst.ks=hd:fd0:/ks.cfg",
-    #" inst.ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<wait>",
-    " inst.ks=cdrom:/ks.cfg<wait>",
+    " inst.ks=${var.kickstart_path}<wait>",
     "<wait><leftCtrlOn>x<leftCtrlOff>",
   ]
   shutdown_command          = "echo 'VMware1!' | sudo -S shutdown -P now"
