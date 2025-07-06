@@ -19,7 +19,14 @@ Central collection of multiple packer builds.
 
 ## Build Images
 
+### Workstation Builds
+
+VMware Workstation or Fusion builds should work without modifing the existing `pkrvars.hcl` files as no secrets are involved.
+
 ```bash
 packer build -var-file wins2025.vmware.pkrvars.hcl -only vmware-iso.wins2025 .
 packer build -var-file ubuntu.vmware.pkrvars.hcl -only vmware-iso.ubuntu .
+
+packer build -var-file rocky9.vmware.pkrvars.hcl -only vmware-iso.rocky .
+packer build -var-file rocky10.vmware.pkrvars.hcl -only vmware-iso.rocky .
 ```

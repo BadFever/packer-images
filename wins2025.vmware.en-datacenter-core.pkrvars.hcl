@@ -1,8 +1,8 @@
 firmware        = "efi"
-build_type      = "de-datacenter" # de-datacenter-core;de-datacenter;en-datacenter-core;en-datacenter
+build_type      = "en-datacenter-core"
 build_os        = "wins2025"
 guest_os_type   = "windows2022srvnext-64"
-iso_path        = "build/iso/26100.1742.240906-0331.ge_release_svc_refresh_SERVER_EVAL_x64FRE_de-de.iso"
+iso_path        = "https://go.microsoft.com/fwlink/?linkid=2293312&clcid=0x409&culture=en-us&country=us"
 iso_checksum    = "none"
 disk_size       =  "65536"
 ssh_password    = "VMware1!"
