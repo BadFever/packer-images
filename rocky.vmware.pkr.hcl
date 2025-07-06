@@ -38,9 +38,7 @@ source "vmware-iso" "rocky" {
   output_directory          = "build/${var.build_os}-${local.build_time}"
   vmx_data_post = {
     "ide1:0.present" = "FALSE"
-    "ide1:0.fileName" = ""
     "ide0:0.present" = "FALSE"
-    "ide0:0.fileName" = ""
   }
 }
 

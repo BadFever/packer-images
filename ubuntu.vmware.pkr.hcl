@@ -27,6 +27,12 @@ source "vmware-iso" "ubuntu" {
   boot_command              = var.boot_command
   shutdown_command          = "echo 'VMware1!' | sudo -S shutdown -P now"
   output_directory          = "build/${var.build_os}-${local.build_time}"
+  vmx_data_post = {
+    "ide1:0.present" = "FALSE"
+    "ide1:0.fileName" = ""
+    "ide0:0.present" = "FALSE"
+    "ide0:0.fileName" = ""
+  }
 }
 
 build {

@@ -28,6 +28,11 @@ source "vmware-iso" "wins2025" {
   shutdown_command          = "shutdown /s /t 10 /f"
   output_directory          = "build/${var.build_os}-${var.build_type}-${local.build_time}"
   disk_size                 = var.disk_size
+  vmx_data_post = {
+    "ide1:0.present" = "FALSE"
+    "ide0:0.present" = "FALSE"
+    "floppy0.present" = "FALSE"
+  }
 }
 
 build {
