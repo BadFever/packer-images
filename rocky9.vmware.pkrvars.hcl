@@ -8,7 +8,7 @@ iso_path        = "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky
 iso_checksum    = "file:https://download.rockylinux.org/pub/rocky/9/isos/x86_64/CHECKSUM"
 
 
-disk_size       = 25600
+disk_size       = 40960
 
 boot_command    = [
         "e<wait>",

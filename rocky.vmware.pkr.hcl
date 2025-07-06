@@ -9,6 +9,7 @@ source "vmware-iso" "rocky" {
   cpus                  = var.cpus
   cores                 = var.cpu_cores
   memory                = var.memory
+  disk_size             = var.disk_size
   network_adapter_type  = "vmxnet3"
   disk_adapter_type     = "scsi"
   cdrom_adapter_type    = "ide"
