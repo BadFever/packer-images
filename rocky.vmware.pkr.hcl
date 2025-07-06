@@ -16,7 +16,7 @@ source "vmware-iso" "rocky" {
   # workstation build settings
   iso_url                   = var.iso_path
   iso_checksum              = var.iso_checksum
-  floppy_files              = ["files/${var.build_os}/rokcy.ks"]
+  floppy_files              = ["files/${var.build_os}/rocky.ks"]
   cd_label                  = "cidata"
   communicator              = "ssh"
   ssh_username              = var.ssh_username
