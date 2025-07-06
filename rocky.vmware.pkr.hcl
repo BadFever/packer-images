@@ -29,8 +29,8 @@ source "vmware-iso" "rocky" {
     "<up>",
     "e<wait>",
     "<down><down><end><wait>",
-    " inst.text inst.ks=hd:fd0:/rocky.ks<wait>",
-    #"<wait><leftCtrlOn>x<leftCtrlOff>",
+    " inst.text ",#inst.ks=hd:fd0:/rocky.ks<wait>",
+    "<wait><leftCtrlOn>x<leftCtrlOff>",
   ]
   shutdown_command          = "echo 'VMware1!' | sudo -S shutdown -P now"
   output_directory          = "build/${var.build_os}-${local.build_time}"
