@@ -1,4 +1,4 @@
-# rocky9.vmware
+# rocky10.vmware
 ssh_username    = "mystic"
 ssh_password    = "VMware1!"
 guest_os_type   = "centos9-64"
