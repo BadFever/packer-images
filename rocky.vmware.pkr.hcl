@@ -16,8 +16,8 @@ source "vmware-iso" "rocky" {
   # workstation build settings
   iso_url                   = var.iso_path
   iso_checksum              = var.iso_checksum
-  floppy_files              = ["files/${var.build_os}/rocky.ks"]
-  cd_label                  = "cidata"
+  #floppy_files              = ["files/${var.build_os}/ks.cfg"]
+  http_directory            = "files/${var.build_os}"
   communicator              = "ssh"
   ssh_username              = var.ssh_username
   ssh_password              = var.ssh_password
@@ -29,7 +29,9 @@ source "vmware-iso" "rocky" {
     "<up>",
     "e<wait>",
     "<down><down><end><wait>",
-    " inst.text ",#inst.ks=hd:fd0:/rocky.ks<wait>",
+    " inst.text",
+    #" inst.ks=hd:fd0:/ks.cfg",
+    " inst.ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<wait>",
     "<wait><leftCtrlOn>x<leftCtrlOff>",
   ]
   shutdown_command          = "echo 'VMware1!' | sudo -S shutdown -P now"
